@@ -1,15 +1,38 @@
 {
-  "name": "Chrome Extension Webpack",
+	"name": "GoCollect CodeChallenge",
   "options_page": "options.html",
+	"version": "1.0",
+	"description": "Comic picker tool",
+	"permissions": [
+		"http://*/*",
+		"https://*/*",
+		"https://comics.gocollect.com/"
+	],
+	"externally_connectable": {
+		"matches": [
+			"https://comics.ha.com/*", 
+			"https://comics.gocollect.com/*"
+		]
+	},
   "background": {
     "page": "background.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+				"https://comics.ha.com/*", 
+				"https://comics.goCollect.com/*",
+				"https://comics.ha.com/*", 
+				"http://*/*", 
+				"https://*/*"
+			],
+      "js": ["myContentScript.bundle.js"]
+    }
+  ],
   "browser_action": {
-    "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
   "icons": {
-    "128": "icon-128.png"
   },
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"

@@ -1,0 +1,8 @@
+nvm i 8
+npm i
+npm start
+
+# Load unpacked ext from build/ directory
+# click/open background.html
+# goto google.com
+# look at console
