@@ -21,16 +21,16 @@ chrome.runtime.onMessage.addListener(forMessage);
 
 // handler
 function forMessage(request, sender, sendResponse) {
-  console.log('images to handle', request.images);
-  const { images } = request;
-  images.forEach(img => {
-    console.log('send XHR for img:', img);
+  console.log('images to handle', request.image);
+  const { image } = request;
+//  images.forEach(img => {
+    console.log('send XHR for img:', image);
 
-    //var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     //xhr.onreadystatechange = handleStateChange; // Implemented elsewhere.
     ////xhr.open("GET", chrome.extension.getURL('/config_resources/config.json'), true);
-		//xhr.open('POST', 'https://comics.gocollect.com/api/certVision?user='+ user +'&key='+ apiKey +'&imageUrl='+ dataURL +'&returnWith[]=activeUser', true);
-    //xhr.send();
-  });
+		xhr.open('POST', image, true);
+    xhr.send();
+//  });
 }
 
